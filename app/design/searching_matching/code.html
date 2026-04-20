@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickFix - Searching</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#2e333b",
+                        "error": "#9f403d",
+                        "secondary-fixed": "#e0e2eb",
+                        "surface": "#faf9fd",
+                        "outline": "#767b84",
+                        "surface-bright": "#faf9fd",
+                        "tertiary-dim": "#48536b",
+                        "tertiary-container": "#d1ddfa",
+                        "secondary-dim": "#50535a",
+                        "primary-dim": "#515255",
+                        "secondary": "#5c5f66",
+                        "error-container": "#fe8983",
+                        "on-primary-container": "#505254",
+                        "primary-fixed-dim": "#d4d4d7",
+                        "on-surface": "#2e333b",
+                        "surface-container-low": "#f3f3f9",
+                        "surface-container-high": "#e5e8f1",
+                        "primary": "#5d5e61",
+                        "on-error-container": "#752121",
+                        "surface-dim": "#d5dae6",
+                        "tertiary-fixed-dim": "#c3cfeb",
+                        "primary-container": "#e2e2e5",
+                        "background": "#faf9fd",
+                        "surface-container": "#ecedf5",
+                        "on-surface-variant": "#5b5f68",
+                        "inverse-on-surface": "#9c9ca0",
+                        "on-error": "#fff7f6",
+                        "on-primary": "#f7f7fa",
+                        "secondary-container": "#e0e2eb",
+                        "on-secondary-container": "#4f5259",
+                        "on-secondary-fixed": "#3c3f46",
+                        "on-primary-fixed": "#3e3f42",
+                        "outline-variant": "#aeb2bc",
+                        "surface-container-highest": "#dfe2ed",
+                        "surface-tint": "#5d5e61",
+                        "on-secondary-fixed-variant": "#595b63",
+                        "inverse-surface": "#0d0e11",
+                        "on-tertiary-fixed": "#303c53",
+                        "error-dim": "#4e0309",
+                        "surface-variant": "#dfe2ed",
+                        "on-tertiary": "#f9f8ff",
+                        "on-secondary": "#f8f8ff",
+                        "primary-fixed": "#e2e2e5",
+                        "on-primary-fixed-variant": "#5a5c5e",
+                        "tertiary": "#545f78",
+                        "inverse-primary": "#f9f9fc",
+                        "on-tertiary-fixed-variant": "#4d5870",
+                        "secondary-fixed-dim": "#d2d4dd",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#d1ddfa",
+                        "on-tertiary-container": "#434e66"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface h-screen w-full overflow-hidden relative antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Map Background Layer -->
+<div class="absolute inset-0 z-0 bg-surface-dim">
+<img alt="Map view background" class="w-full h-full object-cover opacity-60 mix-blend-multiply" data-alt="A stylized, softly lit street map view of a modern city center, muted color palette with subtle roads and block shapes, conveying a clean and structured urban environment" data-location="San Francisco" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxuGsM2axbNNHlKZNV43ncjSkaW07Ta87VbVyQx8HjfVTWn56o66SsrXjtS55tNE6weC-XKGkvjcC06jaX82Zz8Ge1QRyAHTlXakDyzwn9a7yOXbMQ-Yplu_1RDhHThiVEGXE7NhO5PeSga5lV1mVmno2mOB-gIXGk3-Juiq3vNHrzWtA-VSytbJCfYCmjcP3QLDC1JPYW4cfm9S2EtcRB7M4QtI47lTg7RXJHIfgrxLDmgdfU5Q4dQAG0rxgZF7HxAJG-ADpvN80"/>
+</div>
+<!-- Radar Pulse Layer (Static Representation) -->
+<div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+<!-- Outer Ring -->
+<div class="absolute w-[40rem] h-[40rem] rounded-full bg-primary-container/10"></div>
+<!-- Middle Ring -->
+<div class="absolute w-[28rem] h-[28rem] rounded-full bg-primary-container/30"></div>
+<!-- Inner Ring -->
+<div class="absolute w-[16rem] h-[16rem] rounded-full bg-primary-container/60 shadow-[0_0_48px_rgba(226,226,229,0.5)] flex items-center justify-center">
+<!-- Center Node -->
+<div class="w-20 h-20 bg-surface-container-lowest rounded-full shadow-[0_12px_48px_rgba(46,51,59,0.15)] flex items-center justify-center">
+<span class="material-symbols-outlined text-[2rem] text-primary" style="font-variation-settings: 'FILL' 1;">
+                    radar
+                </span>
+</div>
+</div>
+</div>
+<!-- Worker Avatars on Map -->
+<div class="absolute inset-0 z-20 pointer-events-none">
+<!-- Avatar 1 -->
+<div class="absolute top-[25%] left-[20%] w-14 h-14 bg-surface-container-lowest rounded-full p-1 shadow-[0_12px_24px_rgba(46,51,59,0.08)] flex items-center justify-center transform scale-110">
+<img alt="Worker avatar" class="w-full h-full object-cover rounded-full" data-alt="Close up portrait of a young professional man with a slight smile, warm natural lighting, blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvEqHGjDDRpE2t3GbqSkIHNtrje6_f6JLpvqMdYtbhuAiV1LNpYI1XrbGjfG1qCJ6ZDOBihCAEWAwvDMNUVvEx_aVt4ZHsTbbjoGSKCXR1KE7p3Elm6Snsuv9ruDOaqe-QBbfjO_l4kE43Ru83SB7fquPcO0omfe4w9WpMazxUnKGRRmdQHaeZ8G5m8kRukyMastCrM7uBB2QiCqvyrdKg24XLA4yJJ3xXpxDpxQ0ihPMoPkm8_jF5AaQZOKw3hz0YTfZwysqz2qI"/>
+</div>
+<!-- Avatar 2 -->
+<div class="absolute top-[60%] right-[25%] w-12 h-12 bg-surface-container-lowest rounded-full p-1 shadow-[0_12px_24px_rgba(46,51,59,0.08)] flex items-center justify-center opacity-80">
+<img alt="Worker avatar" class="w-full h-full object-cover rounded-full" data-alt="Close up portrait of a young woman with dark hair smiling, bright outdoor lighting, soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN_Ud3FASCzzeD1oNk6SC00OIY_QmSJ0qkcXf_Lf2xyMnPxk0AVYXn28FX_KRB822CX-ITDIBlHyVtVAsdJLcGNWo5rv-zfvqOdNm8-DNKDverEfXWzmR7Hj25L5f0L0MRgL9Mh89EUfybPXNOkDVX6oYfxAP1CDiFU5yPP2-B3KPdDhj9ksqJJa8ez6wiq4OSwQnyerY5VCIiag9YCJHnK7Tx0gvpiIM_gLujqaLA7QhrRe8GpvcrUNrDIVC9ZhK3gvq_C4AxPNw"/>
+</div>
+<!-- Avatar 3 -->
+<div class="absolute top-[40%] right-[15%] w-10 h-10 bg-surface-container-lowest rounded-full p-[2px] shadow-[0_12px_24px_rgba(46,51,59,0.08)] flex items-center justify-center opacity-60">
+<div class="w-full h-full bg-surface-variant rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant text-[1rem]">person</span>
+</div>
+</div>
+</div>
+<!-- Bottom Status Card (The Sculpted Void) -->
+<div class="absolute bottom-8 left-4 right-4 md:w-[28rem] md:left-1/2 md:-translate-x-1/2 z-30 flex flex-col pointer-events-auto">
+<div class="bg-surface/85 backdrop-blur-2xl rounded-xl p-8 flex flex-col items-center shadow-[0_12px_48px_rgba(46,51,59,0.06)] relative overflow-hidden">
+<!-- Subtle gradient highlight for depth -->
+<div class="absolute inset-0 bg-gradient-to-b from-surface-container-lowest/50 to-transparent pointer-events-none"></div>
+<h2 class="font-headline font-bold text-[1.75rem] text-on-surface tracking-tight text-center relative z-10">
+                Finding your Pro
+            </h2>
+<p class="font-body text-[1rem] leading-relaxed text-on-surface-variant mt-2 text-center max-w-[18rem] relative z-10">
+                Broadcasting your request to qualified experts nearby.
+            </p>
+<!-- Cancel Button with Static Circular Progress Representation -->
+<button class="mt-10 bg-surface-container-highest hover:bg-surface-variant text-on-surface rounded-full pl-6 pr-8 py-4 flex items-center gap-4 transition-colors relative z-10 group">
+<!-- Static Circular Progress Visual -->
+<div class="relative w-8 h-8 flex items-center justify-center">
+<svg class="absolute inset-0 w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<!-- Background Circle -->
+<path class="text-surface-dim" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="100, 100" stroke-width="3"></path>
+<!-- Progress Circle (Static representation at ~75%) -->
+<path class="text-on-surface" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="75, 100" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+<span class="material-symbols-outlined text-[1.25rem] text-on-surface">
+                        close
+                    </span>
+</div>
+<span class="font-label text-[1rem] font-medium tracking-wide">
+                    Cancel Search
+                </span>
+</button>
+</div>
+</div>
+</body></html>

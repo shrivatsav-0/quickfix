@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickFix - Live Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#2e333b",
+                        "error": "#9f403d",
+                        "secondary-fixed": "#e0e2eb",
+                        "surface": "#faf9fd",
+                        "outline": "#767b84",
+                        "surface-bright": "#faf9fd",
+                        "tertiary-dim": "#48536b",
+                        "tertiary-container": "#d1ddfa",
+                        "secondary-dim": "#50535a",
+                        "primary-dim": "#515255",
+                        "secondary": "#5c5f66",
+                        "error-container": "#fe8983",
+                        "on-primary-container": "#505254",
+                        "primary-fixed-dim": "#d4d4d7",
+                        "on-surface": "#2e333b",
+                        "surface-container-low": "#f3f3f9",
+                        "surface-container-high": "#e5e8f1",
+                        "primary": "#5d5e61",
+                        "on-error-container": "#752121",
+                        "surface-dim": "#d5dae6",
+                        "tertiary-fixed-dim": "#c3cfeb",
+                        "primary-container": "#e2e2e5",
+                        "background": "#faf9fd",
+                        "surface-container": "#ecedf5",
+                        "on-surface-variant": "#5b5f68",
+                        "inverse-on-surface": "#9c9ca0",
+                        "on-error": "#fff7f6",
+                        "on-primary": "#f7f7fa",
+                        "secondary-container": "#e0e2eb",
+                        "on-secondary-container": "#4f5259",
+                        "on-secondary-fixed": "#3c3f46",
+                        "on-primary-fixed": "#3e3f42",
+                        "outline-variant": "#aeb2bc",
+                        "surface-container-highest": "#dfe2ed",
+                        "surface-tint": "#5d5e61",
+                        "on-secondary-fixed-variant": "#595b63",
+                        "inverse-surface": "#0d0e11",
+                        "on-tertiary-fixed": "#303c53",
+                        "error-dim": "#4e0309",
+                        "surface-variant": "#dfe2ed",
+                        "on-tertiary": "#f9f8ff",
+                        "on-secondary": "#f8f8ff",
+                        "primary-fixed": "#e2e2e5",
+                        "on-primary-fixed-variant": "#5a5c5e",
+                        "tertiary": "#545f78",
+                        "inverse-primary": "#f9f9fc",
+                        "on-tertiary-fixed-variant": "#4d5870",
+                        "secondary-fixed-dim": "#d2d4dd",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#d1ddfa",
+                        "on-tertiary-container": "#434e66"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background h-full overflow-hidden font-body relative">
+<!-- TopAppBar -->
+<header class="fixed w-full top-0 z-50 bg-[#f3f3f9] dark:bg-[#2b2d31]">
+<div class="flex justify-between items-center w-full px-8 py-4 bg-[#faf9fd] dark:bg-[#1a1c1e]">
+<button class="text-[#1a1c1e] dark:text-[#faf9fd] hover:bg-[#ecedf5] dark:hover:bg-[#3f4148] transition-colors rounded-full p-2 scale-95 transition-transform duration-200 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Inter'] font-bold tracking-tight text-[1.75rem] font-bold text-[#1a1c1e] dark:text-[#faf9fd] tracking-[-0.02em]">QuickFix</h1>
+<div class="h-10 w-10 rounded-full bg-surface-container-high overflow-hidden shadow-[0_-12px_48px_rgba(46,51,59,0.06)]">
+<img alt="User avatar" class="h-full w-full object-cover" data-alt="professional portrait of user in soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1hge84ddDvxKxhHVEH_cjvNRVjrZOmT5s3JMVAehNQncRzALaP-I05oVjnyhMB-qHJCXINwPe3L3BMMwoucLcKtNFtIR75LWzOETrfI4xFtm7vrqZHyK0uL4ET2iDrAiTNkNWFVPsFK5qzlq6mXWBkmIbpRjXxaYS1k2sIOv0Ygv4sbjLpvEW9gHYG0zHvYm6dphwCSwCsA4Hbr70-v1sFJqPM_w_UP5Xo3f_XC_Tgf9GHIh4Nkpe924UoDShTS4YDr43bwyBQgA"/>
+</div>
+</div>
+</header>
+<!-- Map Canvas -->
+<div class="absolute inset-0 z-0 bg-surface-container-low overflow-hidden">
+<img alt="Map View" class="w-full h-full object-cover opacity-60" data-alt="minimalist city street map with soft neutral gray tones and subtle highlights" data-location="City Streets" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCDpwoGbeqBOlMtnGJ-cLqWFeIbmkcHiCWEp4XI39eQO7gVRQVcFNImLnHsYNYQ1wEimbGivLvDqMvoVhkmOx3xrhkAZiKZZMMeh5nkOQFQDp4JJ0zDsbbHz66Ms3oanEC4o7itXYP-P0HyEOvHKd5lHgzd7qSwuJuocoma6M-qXiHmXEK6bNiFBuqeonf08tT-Z5qHrEjdBar3lDLdHvlUUcNk77KbNw6PxgDM48zNZaw7X6f-JE02gAkmv8s0m9VVJ8x52L62aY"/>
+<!-- Worker Pin -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center">
+<div class="bg-primary text-on-primary rounded-full p-3 shadow-[0_12px_48px_rgba(46,51,59,0.12)]">
+<span class="material-symbols-outlined text-2xl" data-icon="engineering" data-weight="fill" style="font-variation-settings: 'FILL' 1;">engineering</span>
+</div>
+<div class="mt-2 px-3 py-1 bg-surface/90 backdrop-blur-md rounded-full text-xs font-label text-on-surface tracking-wider font-medium shadow-sm">
+                5 MINS AWAY
+            </div>
+</div>
+</div>
+<!-- Draggable Bottom Sheet (Peek State) -->
+<div class="absolute bottom-0 left-0 right-0 z-40 bg-surface rounded-t-xl shadow-[0_-12px_48px_rgba(46,51,59,0.06)] pt-4 pb-8 px-6 md:px-12 max-w-3xl mx-auto transform translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]">
+<!-- Drag Handle -->
+<div class="w-12 h-1.5 bg-outline-variant/30 rounded-full mx-auto mb-6"></div>
+<!-- Status Header -->
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="font-headline text-2xl font-bold tracking-tight text-on-surface">Arriving Soon</h2>
+<p class="font-body text-on-surface-variant text-sm mt-1">Plumbing Repair Request</p>
+</div>
+<div class="bg-primary-container text-on-primary-container rounded-full px-4 py-2 font-label text-xs tracking-wider font-bold">
+                10:45 AM
+            </div>
+</div>
+<!-- Worker Info Card -->
+<div class="bg-surface-container rounded-lg p-6 flex items-center justify-between mb-8">
+<div class="flex items-center space-x-4">
+<div class="h-14 w-14 rounded-full overflow-hidden bg-surface-container-high border-2 border-surface shadow-sm">
+<img alt="Worker Avatar" class="h-full w-full object-cover" data-alt="professional male technician smiling warmly in soft natural light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_8MQMbMgSbW9L5VyG6TYx4grb4jh-E-OLMapuQAQmZ27cxSpJ1Mc1_GGJGi4Y2hkcr_0Rd1Fb0b24jYdVGvxURtUZ3HglszI29rQ6MhbLzGr4JWj2anZ3rXtAobe8i3SDO-CWI23iLA7Wg-9KEHWPoYdsXx7lQfpQb7e-uMvO1aJSQ7zEgSST_ZKm9xwi1x46a_fN-BGvOUz_4xy1g8kPaH_5gqPxXtn9ncN-a0x56JqPLc6rzaPYaI6gyA7egqExzlrgGcULcaw"/>
+</div>
+<div>
+<h3 class="font-headline font-bold text-on-surface text-lg">Michael Chen</h3>
+<div class="flex items-center text-on-surface-variant text-sm mt-0.5">
+<span class="material-symbols-outlined text-[1rem] mr-1 text-primary" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-medium">4.9</span>
+<span class="mx-2 text-outline-variant">•</span>
+<span>124 Jobs</span>
+</div>
+</div>
+</div>
+<div class="flex space-x-3">
+<button class="bg-surface-container-highest text-on-surface rounded-full p-3 hover:bg-surface-variant transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+</button>
+<button class="bg-surface-container-highest text-on-surface rounded-full p-3 hover:bg-surface-variant transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="call">call</span>
+</button>
+</div>
+</div>
+<!-- Job Details Minimal -->
+<div class="flex justify-between items-center text-sm font-body px-2">
+<div class="flex items-center text-on-surface-variant">
+<span class="material-symbols-outlined text-xl mr-3" data-icon="home_repair_service">home_repair_service</span>
+<span>Fix leaking kitchen sink</span>
+</div>
+<div class="text-on-surface font-medium">$85 Est.</div>
+</div>
+</div>
+</body></html>

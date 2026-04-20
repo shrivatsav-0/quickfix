@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickFix - Booking Confirmation</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#2e333b",
+                    "error": "#9f403d",
+                    "secondary-fixed": "#e0e2eb",
+                    "surface": "#faf9fd",
+                    "outline": "#767b84",
+                    "surface-bright": "#faf9fd",
+                    "tertiary-dim": "#48536b",
+                    "tertiary-container": "#d1ddfa",
+                    "secondary-dim": "#50535a",
+                    "primary-dim": "#515255",
+                    "secondary": "#5c5f66",
+                    "error-container": "#fe8983",
+                    "on-primary-container": "#505254",
+                    "primary-fixed-dim": "#d4d4d7",
+                    "on-surface": "#2e333b",
+                    "surface-container-low": "#f3f3f9",
+                    "surface-container-high": "#e5e8f1",
+                    "primary": "#5d5e61",
+                    "on-error-container": "#752121",
+                    "surface-dim": "#d5dae6",
+                    "tertiary-fixed-dim": "#c3cfeb",
+                    "primary-container": "#e2e2e5",
+                    "background": "#faf9fd",
+                    "surface-container": "#ecedf5",
+                    "on-surface-variant": "#5b5f68",
+                    "inverse-on-surface": "#9c9ca0",
+                    "on-error": "#fff7f6",
+                    "on-primary": "#f7f7fa",
+                    "secondary-container": "#e0e2eb",
+                    "on-secondary-container": "#4f5259",
+                    "on-secondary-fixed": "#3c3f46",
+                    "on-primary-fixed": "#3e3f42",
+                    "outline-variant": "#aeb2bc",
+                    "surface-container-highest": "#dfe2ed",
+                    "surface-tint": "#5d5e61",
+                    "on-secondary-fixed-variant": "#595b63",
+                    "inverse-surface": "#0d0e11",
+                    "on-tertiary-fixed": "#303c53",
+                    "error-dim": "#4e0309",
+                    "surface-variant": "#dfe2ed",
+                    "on-tertiary": "#f9f8ff",
+                    "on-secondary": "#f8f8ff",
+                    "primary-fixed": "#e2e2e5",
+                    "on-primary-fixed-variant": "#5a5c5e",
+                    "tertiary": "#545f78",
+                    "inverse-primary": "#f9f9fc",
+                    "on-tertiary-fixed-variant": "#4d5870",
+                    "secondary-fixed-dim": "#d2d4dd",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed": "#d1ddfa",
+                    "on-tertiary-container": "#434e66"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "spacing": {},
+            "fontFamily": {
+                    "headline": [
+                            "Inter"
+                    ],
+                    "body": [
+                            "Inter"
+                    ],
+                    "label": [
+                            "Inter"
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>body {
+    font-family: "Inter", sans-serif;
+    background-color: #faf9fd;
+    color: #2e333b;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24
+    }
+.motion-spring-expressive {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-duration: 400ms
+    }
+.glass-panel {
+    background-color: rgba(243, 243, 249, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px)
+    }
+/* Ambient Shadow */
+.ambient-shadow {
+    box-shadow: 0 12px 48px rgba(46, 51, 59, 0.06)
+    }
+/* Map Background */
+.map-bg {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBxBBO0nJmcqnl5CxQ5lYYKOVVgi4K8iuu_wWUnGXTDm6IuXExSbEYmMdFXFhkQDL2VRckLrYfX6CFfFLAKUX4xE9433GlvmspIHkeEX5WgWyGHDZzdzILoQHjc9YX-K1Pnx2Kyvqy25RR742nYjO31k3DcUQGA4E35d7ki-JLH_xElrMI_XEnsPzJzrG8fac7hW9fARmO9J4owRPm9IHu_HDGyjtykYvmZdQbrAaNaqUtSFzW8fQXYtmDAqpFCmOBlcw65803k6Mk);
+    background-size: cover;
+    background-position: center
+    }
+/* Hide scrollbar for clean look */
+::-webkit-scrollbar {
+    display: none
+    }</style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface relative overflow-hidden h-screen w-screen font-body antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- Background Map Canvas -->
+<div class="absolute inset-0 z-0 map-bg" data-alt="clean minimal city map with subtle streets and parks in soft neutral tones, light mode style, no labels">
+<!-- Subtle gradient overlay to ensure text legibility if needed -->
+<div class="absolute inset-0 bg-gradient-to-b from-surface/40 via-transparent to-surface/80"></div>
+</div>
+<!-- Top App Bar (Transactional/Secondary - Transparent) -->
+<header class="relative z-10 w-full px-8 py-6 flex justify-between items-center">
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest/80 backdrop-blur-md ambient-shadow text-on-surface hover:bg-surface-container transition-colors active:scale-95 motion-spring-expressive">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<div class="font-headline font-bold text-xl tracking-tight text-on-surface drop-shadow-sm">Booking</div>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-lowest/80 backdrop-blur-md ambient-shadow text-on-surface hover:bg-surface-container transition-colors active:scale-95 motion-spring-expressive">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</header>
+<!-- Main Content Canvas (Map area interaction) -->
+<main class="relative z-10 flex-1 flex flex-col items-center justify-center pointer-events-none">
+<!-- Location Pin -->
+<div class="flex flex-col items-center transform -translate-y-24 motion-spring-expressive">
+<div class="w-16 h-16 bg-surface-container-lowest rounded-full flex items-center justify-center ambient-shadow mb-2">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-inner">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">plumbing</span>
+</div>
+</div>
+<div class="bg-surface-container-highest/90 backdrop-blur-md px-4 py-2 rounded-full text-sm font-medium text-on-surface ambient-shadow">
+                123 Main St, Apt 4B
+            </div>
+</div>
+</main>
+<!-- Bottom Sheet (Expanded state) -->
+<div class="absolute bottom-0 left-0 right-0 z-20 bg-surface-container-lowest rounded-t-[3rem] ambient-shadow pb-10 pt-4 px-6 sm:px-8 max-h-[751px] overflow-y-auto motion-spring-expressive transform translate-y-0 flex flex-col gap-6">
+<!-- Drag Handle Indicator -->
+<div class="w-full flex justify-center mb-2">
+<div class="w-12 h-1.5 bg-outline-variant/30 rounded-full"></div>
+</div>
+<!-- Sheet Header -->
+<div class="flex flex-col gap-2 px-2">
+<h2 class="font-headline font-bold text-[2rem] leading-tight tracking-[-0.02em] text-on-surface">Plumbing Repair</h2>
+<p class="font-body text-base text-on-surface-variant leading-relaxed">Select your preferred timing for a certified professional to arrive.</p>
+</div>
+<!-- Segmented Button Toggle (Now / Schedule) -->
+<div class="relative w-full bg-surface-container-low p-2 rounded-full flex items-center mt-2">
+<!-- Sliding Indicator (Currently on 'Now') -->
+<div class="absolute left-2 w-[calc(50%-0.5rem)] h-[calc(100%-1rem)] bg-surface-container-lowest rounded-full ambient-shadow motion-spring-expressive"></div>
+<button class="relative z-10 flex-1 py-4 flex items-center justify-center gap-2 rounded-full text-on-surface font-medium transition-colors">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                Now
+            </button>
+<button class="relative z-10 flex-1 py-4 flex items-center justify-center gap-2 rounded-full text-on-surface-variant hover:text-on-surface transition-colors font-medium">
+<span class="material-symbols-outlined text-xl">calendar_month</span>
+                Schedule
+            </button>
+</div>
+<!-- Service Details Card (Bento Style) -->
+<div class="bg-surface-container rounded-lg p-6 flex flex-col gap-5 mt-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-2xl">timer</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label text-[0.6875rem] tracking-[0.05em] uppercase text-on-surface-variant font-medium">Est. Arrival</span>
+<span class="font-headline font-semibold text-lg text-on-surface">15 - 25 min</span>
+</div>
+</div>
+<div class="text-right flex flex-col">
+<span class="font-label text-[0.6875rem] tracking-[0.05em] uppercase text-on-surface-variant font-medium">Base Rate</span>
+<span class="font-headline font-semibold text-lg text-on-surface">$85<span class="text-sm font-normal text-on-surface-variant">/hr</span></span>
+</div>
+</div>
+<!-- Minimal separator (whitespace approach preferred, but subtle visual break needed here) -->
+<div class="w-full h-px bg-outline-variant/15"></div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-full flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-2xl">shield_person</span>
+</div>
+<div class="flex flex-col flex-1">
+<span class="font-body text-base font-semibold text-on-surface">Verified Professionals</span>
+<span class="font-body text-sm text-on-surface-variant">Background checked &amp; insured</span>
+</div>
+</div>
+</div>
+<!-- Notes / Issue Description -->
+<div class="flex flex-col gap-3 mt-2">
+<label class="font-label text-[0.6875rem] tracking-[0.05em] uppercase text-on-surface-variant font-medium px-2">Issue Description (Optional)</label>
+<div class="bg-surface-container-low rounded-lg p-4 flex items-start gap-3 focus-within:bg-surface-container-high transition-colors motion-spring-expressive">
+<span class="material-symbols-outlined text-outline-variant mt-0.5">edit_note</span>
+<textarea class="w-full bg-transparent border-none p-0 text-base text-on-surface placeholder:text-outline focus:ring-0 resize-none h-12 font-body" placeholder="E.g., Leaking pipe under the kitchen sink..."></textarea>
+</div>
+</div>
+<!-- Extended FAB (Action CTA) -->
+<div class="mt-6 w-full pb-4 px-2">
+<button class="w-full bg-gradient-to-r from-primary to-primary-dim text-on-primary rounded-full py-5 px-8 flex items-center justify-center gap-3 motion-spring-expressive active:scale-95 shadow-[0_8px_32px_rgba(93,94,97,0.2)]">
+<span class="material-symbols-outlined text-2xl">search</span>
+<span class="font-headline font-bold text-lg tracking-wide">Find Worker</span>
+</button>
+</div>
+</div>
+</body></html>

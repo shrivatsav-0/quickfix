@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickFix - Service Selection</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-background": "#2e333b",
+                        "error": "#9f403d",
+                        "secondary-fixed": "#e0e2eb",
+                        "surface": "#faf9fd",
+                        "outline": "#767b84",
+                        "surface-bright": "#faf9fd",
+                        "tertiary-dim": "#48536b",
+                        "tertiary-container": "#d1ddfa",
+                        "secondary-dim": "#50535a",
+                        "primary-dim": "#515255",
+                        "secondary": "#5c5f66",
+                        "error-container": "#fe8983",
+                        "on-primary-container": "#505254",
+                        "primary-fixed-dim": "#d4d4d7",
+                        "on-surface": "#2e333b",
+                        "surface-container-low": "#f3f3f9",
+                        "surface-container-high": "#e5e8f1",
+                        "primary": "#5d5e61",
+                        "on-error-container": "#752121",
+                        "surface-dim": "#d5dae6",
+                        "tertiary-fixed-dim": "#c3cfeb",
+                        "primary-container": "#e2e2e5",
+                        "background": "#faf9fd",
+                        "surface-container": "#ecedf5",
+                        "on-surface-variant": "#5b5f68",
+                        "inverse-on-surface": "#9c9ca0",
+                        "on-error": "#fff7f6",
+                        "on-primary": "#f7f7fa",
+                        "secondary-container": "#e0e2eb",
+                        "on-secondary-container": "#4f5259",
+                        "on-secondary-fixed": "#3c3f46",
+                        "on-primary-fixed": "#3e3f42",
+                        "outline-variant": "#aeb2bc",
+                        "surface-container-highest": "#dfe2ed",
+                        "surface-tint": "#5d5e61",
+                        "on-secondary-fixed-variant": "#595b63",
+                        "inverse-surface": "#0d0e11",
+                        "on-tertiary-fixed": "#303c53",
+                        "error-dim": "#4e0309",
+                        "surface-variant": "#dfe2ed",
+                        "on-tertiary": "#f9f8ff",
+                        "on-secondary": "#f8f8ff",
+                        "primary-fixed": "#e2e2e5",
+                        "on-primary-fixed-variant": "#5a5c5e",
+                        "tertiary": "#545f78",
+                        "inverse-primary": "#f9f9fc",
+                        "on-tertiary-fixed-variant": "#4d5870",
+                        "secondary-fixed-dim": "#d2d4dd",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#d1ddfa",
+                        "on-tertiary-container": "#434e66"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen relative overflow-hidden flex flex-col">
+<!-- TopAppBar -->
+<header class="bg-[#faf9fd] dark:bg-[#1a1c1e] text-[#1a1c1e] dark:text-[#faf9fd] font-['Inter'] font-bold tracking-tight text-[1.75rem] flex justify-between items-center w-full px-8 py-4 docked full-width top-0 bg-[#f3f3f9] dark:bg-[#2b2d31] flat no shadows tonal layering z-10 sticky">
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-[#ecedf5] dark:hover:bg-[#3f4148] transition-colors scale-95 transition-transform duration-200 ease-[cubic-bezier(0.175,0.885,0.32,1.275)]">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="font-bold text-[#1a1c1e] dark:text-[#faf9fd] tracking-[-0.02em]">Plumbing</span>
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container-highest">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="Portrait of a smiling young professional man in a clean, modern setting with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfp0A72Chie_F6PgKys6LmtTu321vpJl_U5_6_VPs344phVwKWAAkI2XGfKjPIb472hOP4ngqpu9cmvaA1LITAXxwKy9-vWWU6hAneIJzofuuX3-FjKvhn6UWnZLtY1Hv7vIRUYMaaZ02gHXTYaoPBmskPukX-Mhk8Sidsx30zmw2p9jEHFs1etJKqaX2j_jepFUQuT6zg0I6vbuSgtt_qSSZ7Zq5aT3752FdtA0_oVKdF_UL7vxDzdEtwSvJqQmKaWydQSO564UY"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 overflow-y-auto px-6 pt-6 pb-40 flex flex-col gap-6">
+<!-- Hero Context -->
+<section class="flex flex-col gap-2 mb-4 pl-2">
+<h1 class="font-headline font-bold text-[2.5rem] tracking-tight leading-none text-on-surface">Select Service</h1>
+<p class="font-body text-[1rem] leading-[1.6] text-on-surface-variant max-w-sm">Choose the specific plumbing issue you need resolved today.</p>
+</section>
+<!-- Service List - Staggered Bento style -->
+<section class="grid grid-cols-1 gap-4">
+<!-- Service Item 1: Selected State -->
+<div class="bg-surface-container-high rounded-lg p-6 flex items-center justify-between relative overflow-hidden group cursor-pointer border border-outline-variant/15">
+<!-- Selection Highlight gradient -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent opacity-100"></div>
+<div class="flex items-center gap-5 relative z-10">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-[0_8px_24px_rgba(46,51,59,0.12)]">
+<span class="material-symbols-outlined text-3xl" data-icon="water_drop" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg text-on-surface">Faucet Repair</span>
+<span class="font-label text-sm text-on-surface-variant tracking-wide">Leaks, drips, replacement</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary relative z-10 shadow-[0_4px_12px_rgba(46,51,59,0.15)]">
+<span class="material-symbols-outlined text-xl" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<!-- Service Item 2 -->
+<div class="bg-surface-container rounded-lg p-6 flex items-center justify-between relative overflow-hidden group cursor-pointer hover:bg-surface-container-highest transition-colors duration-300">
+<div class="flex items-center gap-5 relative z-10">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-95 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="plumbing">plumbing</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg text-on-surface">Pipe Replacement</span>
+<span class="font-label text-sm text-on-surface-variant tracking-wide">Burst pipes, re-piping</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant/30 flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+</div>
+</div>
+<!-- Service Item 3 -->
+<div class="bg-surface-container rounded-lg p-6 flex items-center justify-between relative overflow-hidden group cursor-pointer hover:bg-surface-container-highest transition-colors duration-300">
+<div class="flex items-center gap-5 relative z-10">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-95 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="wc">wc</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg text-on-surface">Toilet Repair</span>
+<span class="font-label text-sm text-on-surface-variant tracking-wide">Clogs, running, install</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant/30 flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+</div>
+</div>
+<!-- Service Item 4 -->
+<div class="bg-surface-container rounded-lg p-6 flex items-center justify-between relative overflow-hidden group cursor-pointer hover:bg-surface-container-highest transition-colors duration-300">
+<div class="flex items-center gap-5 relative z-10">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest flex items-center justify-center text-primary group-hover:scale-95 transition-transform duration-300">
+<span class="material-symbols-outlined text-3xl" data-icon="water_heater">water_heater</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline font-bold text-lg text-on-surface">Water Heater</span>
+<span class="font-label text-sm text-on-surface-variant tracking-wide">Maintenance, installation</span>
+</div>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant/30 flex items-center justify-center text-transparent">
+<span class="material-symbols-outlined text-xl" data-icon="check">check</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Persistent Bottom Sheet - Glassmorphism -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface-container-low/90 backdrop-blur-[20px] rounded-t-xl shadow-[0_-12px_48px_rgba(46,51,59,0.06)] px-8 pt-8 pb-10 flex flex-col gap-6 transform translate-y-0">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<span class="font-label text-[0.6875rem] tracking-[0.05em] uppercase text-on-surface-variant mb-1">Selected Service</span>
+<span class="font-headline font-bold text-2xl text-on-surface">Faucet Repair</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-label text-[0.6875rem] tracking-[0.05em] uppercase text-on-surface-variant mb-1">Est. Starting</span>
+<span class="font-headline font-bold text-xl text-primary">$85</span>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-dim text-on-primary rounded-full py-5 px-8 flex justify-center items-center gap-3 font-headline font-bold text-lg active:scale-95 transition-transform duration-200">
+            Continue to Details
+            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</body></html>

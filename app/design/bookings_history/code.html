@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>QuickFix - Bookings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-fixed": "#3c3f46",
+                        "primary-container": "#e2e2e5",
+                        "on-tertiary": "#f9f8ff",
+                        "on-error-container": "#752121",
+                        "tertiary-fixed-dim": "#c3cfeb",
+                        "secondary": "#5c5f66",
+                        "on-surface": "#2e333b",
+                        "error-container": "#fe8983",
+                        "secondary-dim": "#50535a",
+                        "on-tertiary-fixed-variant": "#4d5870",
+                        "on-tertiary-fixed": "#303c53",
+                        "secondary-fixed": "#e0e2eb",
+                        "on-primary-fixed": "#3e3f42",
+                        "on-background": "#2e333b",
+                        "secondary-fixed-dim": "#d2d4dd",
+                        "on-surface-variant": "#5b5f68",
+                        "surface-container-low": "#f3f3f9",
+                        "inverse-primary": "#f9f9fc",
+                        "inverse-surface": "#0d0e11",
+                        "surface-bright": "#faf9fd",
+                        "on-primary-fixed-variant": "#5a5c5e",
+                        "surface-container-high": "#e5e8f1",
+                        "error-dim": "#4e0309",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#e0e2eb",
+                        "on-secondary-fixed-variant": "#595b63",
+                        "on-secondary": "#f8f8ff",
+                        "primary-fixed": "#e2e2e5",
+                        "surface-container": "#ecedf5",
+                        "primary": "#5d5e61",
+                        "primary-fixed-dim": "#d4d4d7",
+                        "inverse-on-surface": "#9c9ca0",
+                        "surface-variant": "#dfe2ed",
+                        "surface-container-highest": "#dfe2ed",
+                        "on-error": "#fff7f6",
+                        "outline-variant": "#aeb2bc",
+                        "tertiary-fixed": "#d1ddfa",
+                        "surface": "#faf9fd",
+                        "on-primary": "#f7f7fa",
+                        "tertiary-container": "#d1ddfa",
+                        "surface-tint": "#5d5e61",
+                        "primary-dim": "#515255",
+                        "tertiary": "#545f78",
+                        "on-primary-container": "#505254",
+                        "background": "#faf9fd",
+                        "error": "#9f403d",
+                        "surface-dim": "#d5dae6",
+                        "tertiary-dim": "#48536b",
+                        "on-secondary-container": "#4f5259",
+                        "outline": "#767b84",
+                        "on-tertiary-container": "#434e66"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "safe": "env(safe-area-inset-bottom)"
+                    },
+                    "fontFamily": {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface antialiased min-h-screen pb-24 selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-8 py-4 w-full docked full-width top-0 bg-[#faf9fd] dark:bg-[#1A1C1E] no-border flat no-shadows sticky z-40">
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container hover:bg-[#ecedf5] dark:hover:bg-[#2e333b] transition-all duration-300 scale-95 duration-500 ease-[spring-expressive]">
+<span class="material-symbols-outlined text-[#2e333b] dark:text-[#ecedf5]" data-icon="menu">menu</span>
+</button>
+<h1 class="font-['Inter'] font-bold tracking-tight text-[1.75rem] font-black text-[#1A1C1E] dark:text-[#ffffff] tracking-[-0.02em]">QuickFix</h1>
+<button class="w-12 h-12 rounded-full overflow-hidden border-2 border-transparent hover:border-outline-variant transition-all duration-300 scale-95 duration-500 ease-[spring-expressive]">
+<img alt="User avatar" class="w-full h-full object-cover" data-alt="Portrait of a smiling young man in a clean, soft-lit environment, acting as a user profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvHXy11-UXZy9DLkAYiEcy-VJ4vHSNtp1PwacaQeAy1JCnWpzLwiGLl_X1o5LDh66GDQIX52f_35fNQhGf7ccWOjXZD7NL5lcHaNOdXDWoykYsoZjsC8hKNdM-CNu8YvulfzmilPHOsg9VsRXEL4YHaZdyP5mvU3IlcdvVZQIhdoZ3ugGCorKS405V7LWk4BUjFOssppwsmIsUuhXUIm1teA87o4v3Ch3E0s_lpqeTNXSl1NuzlEXyrLPbH-hFq_5rJ5Rpm-H2n3c"/>
+</button>
+</header>
+<main class="max-w-3xl mx-auto px-6 pt-6 pb-32">
+<!-- Page Title & Controls -->
+<div class="mb-10 flex flex-col gap-6">
+<h2 class="text-[3.5rem] leading-none font-bold tracking-[-0.02em] text-on-surface">Bookings</h2>
+<!-- Segmented Control (Tabs) -->
+<div class="flex p-2 bg-surface-container-low rounded-full w-full relative">
+<button class="flex-1 py-4 text-center rounded-full bg-surface-container-highest shadow-sm text-on-surface font-medium text-[1rem] tracking-tight transition-all duration-500 ease-[spring-expressive]">Upcoming</button>
+<button class="flex-1 py-4 text-center rounded-full text-on-surface-variant font-medium text-[1rem] tracking-tight hover:bg-surface-container/50 transition-all duration-500 ease-[spring-expressive]">Past</button>
+</div>
+</div>
+<!-- Bookings List (Bento-ish Vertical Stack) -->
+<div class="flex flex-col gap-8">
+<!-- Card 1: Upcoming (High Priority) -->
+<article class="bg-surface-container rounded-xl p-8 flex flex-col gap-6 relative overflow-hidden group hover:bg-surface-container-high transition-colors duration-500">
+<!-- Decorative Accent -->
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[6rem] -mr-8 -mt-8"></div>
+<div class="flex justify-between items-start z-10">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[2rem]" data-icon="plumbing">plumbing</span>
+</div>
+<div>
+<h3 class="text-[1.75rem] font-bold text-on-surface tracking-tight leading-tight">Plumbing Issue</h3>
+<p class="text-[1rem] text-on-surface-variant mt-1 font-medium">Sink Repair</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest px-4 py-2 rounded-full shadow-sm">
+<span class="text-[0.6875rem] font-bold uppercase tracking-[0.05em] text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[1rem]" data-icon="schedule" data-weight="fill" style="font-variation-settings: 'FILL' 1;">schedule</span>
+                            Scheduled
+                        </span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-6 mt-2 z-10">
+<!-- Date/Time Block -->
+<div class="flex-1 bg-surface-container-lowest rounded-lg p-6 shadow-[0_4px_24px_rgba(46,51,59,0.02)]">
+<div class="flex items-center gap-3 text-on-surface-variant mb-2">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-medium text-[1rem]">Tomorrow, 10:00 AM</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span class="font-medium text-[1rem]">123 Main St, Apt 4B</span>
+</div>
+</div>
+<!-- Worker Block -->
+<div class="flex-1 bg-surface-container-lowest rounded-lg p-6 shadow-[0_4px_24px_rgba(46,51,59,0.02)] flex items-center gap-4">
+<img alt="Professional Plumber" class="w-14 h-14 rounded-full object-cover" data-alt="Portrait of a smiling professional tradesman in a blue uniform, warmly lit, acting as a service provider avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIRdRuze6DuAcvhh0UX9MBSJWz9PoSpllwTd2ex5bF_hlz2ftZAsFPKm6HZi8HC1_Er0EeRTMVUidZrQjRVF6QHiMGt-YlhQxRr8HezSr4tyJN1t7MK9skDbcJAT_zAGsPIsXNxCNucB0ZT1967nr51h1Wccfew9yxGZWE00bZzFg3t2CfeoYFOygELKMRhZRWaQJQ47ru_aRkOrfW0TvqyXRbcHq_kvuLXBv21v6F6tLF-vW_APZzZYbuB7DabywvHrtVrSF2psU"/>
+<div>
+<p class="text-[1rem] font-bold text-on-surface">Michael T.</p>
+<p class="text-[0.875rem] text-on-surface-variant flex items-center gap-1 mt-1">
+<span class="material-symbols-outlined text-[1rem] text-secondary" data-icon="star" data-weight="fill" style="font-variation-settings: 'FILL' 1;">star</span>
+                                4.9 (120 reviews)
+                            </p>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex gap-4 mt-2 z-10">
+<button class="flex-1 bg-primary text-on-primary py-4 rounded-full font-bold text-[1rem] active:scale-95 transition-all duration-500 ease-[spring-expressive] shadow-sm">
+                        Reschedule
+                    </button>
+<button class="flex-1 bg-surface-container-highest text-on-surface py-4 rounded-full font-bold text-[1rem] active:scale-95 transition-all duration-500 ease-[spring-expressive]">
+                        Cancel
+                    </button>
+</div>
+</article>
+<!-- Card 2: Upcoming (Further out) -->
+<article class="bg-surface-container-low rounded-xl p-8 flex flex-col gap-6 relative overflow-hidden group hover:bg-surface-container transition-colors duration-500 border border-outline-variant/15">
+<div class="flex justify-between items-start z-10">
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full bg-tertiary-container flex items-center justify-center text-on-tertiary-container shadow-sm">
+<span class="material-symbols-outlined text-[2rem]" data-icon="bolt">bolt</span>
+</div>
+<div>
+<h3 class="text-[1.75rem] font-bold text-on-surface tracking-tight leading-tight">Electrical Insp.</h3>
+<p class="text-[1rem] text-on-surface-variant mt-1 font-medium">Routine Check</p>
+</div>
+</div>
+<div class="bg-surface-container px-4 py-2 rounded-full shadow-sm border border-outline-variant/10">
+<span class="text-[0.6875rem] font-bold uppercase tracking-[0.05em] text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[1rem]" data-icon="pending">pending</span>
+                            Confirmed
+                        </span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-6 mt-2 z-10">
+<!-- Date/Time Block -->
+<div class="flex-1 bg-surface rounded-lg p-6 shadow-[0_4px_24px_rgba(46,51,59,0.02)]">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-medium text-[1rem]">Oct 15, 2:00 PM</span>
+</div>
+</div>
+<!-- Worker Block -->
+<div class="flex-1 bg-surface rounded-lg p-6 shadow-[0_4px_24px_rgba(46,51,59,0.02)] flex items-center gap-4">
+<div class="w-14 h-14 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/20 text-on-surface-variant">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+<div>
+<p class="text-[1rem] font-bold text-on-surface">Assigning...</p>
+<p class="text-[0.875rem] text-on-surface-variant mt-1">Provider TBD</p>
+</div>
+</div>
+</div>
+</article>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-4 bg-[#f3f3f9]/80 dark:bg-[#1A1C1E]/80 backdrop-blur-xl rounded-t-[3rem] pb-safe no-border tonal-shift shadow-[0_-12px_48px_rgba(46,51,59,0.06)] md:hidden">
+<button class="flex flex-col items-center justify-center text-[#2e333b]/50 dark:text-[#ecedf5]/50 px-6 py-2 hover:scale-110 transition-transform active:scale-90 duration-500 ease-[spring-expressive] group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="search">search</span>
+<span class="font-['Inter'] text-[0.6875rem] font-medium tracking-[0.05em] uppercase">Explore</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-[#ecedf5] dark:bg-[#2e333b] text-[#1A1C1E] dark:text-[#ffffff] rounded-full px-6 py-2 transition-all duration-500 ease-[spring-expressive] hover:scale-110 active:scale-90">
+<span class="material-symbols-outlined mb-1" data-icon="calendar_month" data-weight="fill" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="font-['Inter'] text-[0.6875rem] font-medium tracking-[0.05em] uppercase">Bookings</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#2e333b]/50 dark:text-[#ecedf5]/50 px-6 py-2 hover:scale-110 transition-transform active:scale-90 duration-500 ease-[spring-expressive] group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="contact_support">contact_support</span>
+<span class="font-['Inter'] text-[0.6875rem] font-medium tracking-[0.05em] uppercase">Support</span>
+</button>
+<button class="flex flex-col items-center justify-center text-[#2e333b]/50 dark:text-[#ecedf5]/50 px-6 py-2 hover:scale-110 transition-transform active:scale-90 duration-500 ease-[spring-expressive] group">
+<span class="material-symbols-outlined mb-1 group-hover:text-primary transition-colors" data-icon="person">person</span>
+<span class="font-['Inter'] text-[0.6875rem] font-medium tracking-[0.05em] uppercase">Profile</span>
+</button>
+</nav>
+</body></html>
